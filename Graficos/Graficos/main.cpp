@@ -1,77 +1,48 @@
-#include <iostream>
+﻿#include <iostream>
 #include <cstdlib>
+#include <string>
+// - IMPORTANTE: El include de Glew debe llamarse siempre ANTES de llamar al de GLFW.
 
 #include <GL\glew.h>
+#include <GL\GL.h>
 #include <GLFW\glfw3.h>
+#include "PagRenderer.h"
 
-//Variables que almacenan el color de la escena
-float colorComponenteR = 0.3;
-float colorComponenteG = 0.6;
-float colorComponenteB = 0.9;
-float const COMPONENTE_TRANSPARENCIA = 1.0;
-
-//Generamos el cambio que tendr� la componente aleatoriamente en el rango [0.01, 0.05]
-float cambioColorAleatorio() {
-	return  ((rand() % 5) + 1) * 0.01;
-}
-
-//Funci�n que se encarga de gestionar la entrada del usuario con la ruedecilla del rat�n
+//Función que se encarga de gestionar la entrada del usuario con la ruedecilla del ratón
 void scroll_callback(GLFWwindow* window, double xoffset, double yoffset)
 {
-	if (yoffset < 0) {
-		//Baja la ruedecilla
-		colorComponenteR -= cambioColorAleatorio();
-		colorComponenteG -= cambioColorAleatorio();
-		colorComponenteB -= cambioColorAleatorio();
-	}
-	else if (yoffset > 0)
-	{
-		//Sube la ruedecilla
-		colorComponenteR += cambioColorAleatorio();
-		colorComponenteG += cambioColorAleatorio();
-		colorComponenteB += cambioColorAleatorio();
-	}
-
-	//Truncamos las componentes que se salgan del Rango [0,1]
-	//Componente R
-	if (colorComponenteR < 0.0 || colorComponenteR > 1.0) {
-		colorComponenteR = truncf(colorComponenteR);
-	}
-	//Componente G
-	if (colorComponenteG < 0.0 || colorComponenteG > 1.0) {
-		colorComponenteG = truncf(colorComponenteG);
-	}
-	//Componente B
-	if (colorComponenteB < 0.0 || colorComponenteB > 1.0) {
-		colorComponenteB = truncf(colorComponenteB);
-	}
-
-	//Pintamos del nuevo color
-	glClearColor(colorComponenteR, colorComponenteG, colorComponenteB, COMPONENTE_TRANSPARENCIA);
-
+	PAGrenderer::getInstancia()->callbackScroll(xoffset, yoffset);
 }
+
+GLfloat vertices[] = { -.5,-.5,0,
+					  .5,-.5,0,
+					   0,.5,0 };
 
 int main() {
 
+	/**	Inicializamos GLFW y comprobamos si ha habido errores durante
+		dicho proceso, en cuyo caso, lanzamos una excepci�n.
+	*/
 	if (glfwInit() == GLFW_FALSE) {
 		throw std::runtime_error("Error inicializando GLFW");
 	}
-	glfwWindowHint(GLFW_SAMPLES, 4);
 
+	glfwWindowHint(GLFW_SAMPLES, 4);
 	glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
 	glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 4);
 	glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 1);
 
 	GLFWwindow* ventana;
 
-	ventana = glfwCreateWindow(800, 600, "Practica 0", nullptr, nullptr);
+	ventana = glfwCreateWindow(800, 600, "Practica 3", nullptr, nullptr);
+	PAGrenderer::getInstancia()->setViewport(0, 0, 800, 600);
 
 	if (ventana == nullptr) {
 		glfwTerminate();
 		throw std::runtime_error("Error creando la ventana");
 	}
 	glfwMakeContextCurrent(ventana);
-	glfwSetScrollCallback(ventana, scroll_callback);
+
 	glewExperimental = true;
 	if (glewInit() != GLEW_OK) {
 		glfwDestroyWindow(ventana);
@@ -79,16 +50,39 @@ int main() {
 		glfwTerminate();
 		throw std::runtime_error("Error inicializando GLEW");
 	}
+	
+	std::string nombreShader = "pr03";
+	try
+	{
+		//Creamos el Shader Program
+		PAGrenderer::getInstancia()->addShaderProgram(nombreShader);
+		//Si la creación del shader es correcta añadimos la información del triángulo. En caso contrario, solo pintamos el fondo
+		GLuint miVBA = 0;
+		glGenVertexArrays(1, &miVBA);
+		glBindVertexArray(miVBA);
+		GLuint miVBO = 0;
+		glGenBuffers(1, &miVBO);
+		glBindBuffer(GL_ARRAY_BUFFER, miVBO);
+		glBufferData(GL_ARRAY_BUFFER, 9 * sizeof(GLfloat), vertices, GL_STATIC_DRAW);
+		glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(GLfloat), nullptr);
+		glEnableVertexAttribArray(0);
+	}
+	catch (std::runtime_error e) {
+		std::cout << e.what() << std::endl;
+	}
+	catch (std::invalid_argument e) {
+		std::cout << e.what() << std::endl;
+	}
 
-	GLuint shaderProgramID;
-	shaderProgramID = glCreateProgram();
 
-	glClearColor(colorComponenteR, colorComponenteG, colorComponenteB, COMPONENTE_TRANSPARENCIA);
-
-	glEnable(GL_DEPTH_TEST);
+	glfwSetScrollCallback(ventana, scroll_callback);
+	PAGrenderer::getInstancia()->rellenarFondo();
+	PAGrenderer::getInstancia()->activarZBuffer();
 
 	while (!glfwWindowShouldClose(ventana)) {
-		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+		PAGrenderer::getInstancia()->refrescaVentana();
+		glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
+		glDrawArrays(GL_TRIANGLES, 0, 3);
 		glfwPollEvents();
 		glfwSwapBuffers(ventana);
 	}

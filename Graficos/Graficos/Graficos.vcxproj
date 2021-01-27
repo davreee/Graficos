@@ -88,7 +88,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>D:\Repositorios\Graficos\Graficos\Dependencies\glfw-3.2.1.bin.WIN32\include;D:\Repositorios\Graficos\Graficos\Dependencies\glew-2.1.0\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>D:\Repositorios\Graficos\Graficos\Dependencies\glm-0.9.9.0\glm\glm;D:\Repositorios\Graficos\Graficos\Dependencies\glfw-3.2.1.bin.WIN32\include;D:\Repositorios\Graficos\Graficos\Dependencies\glew-2.1.0\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -105,7 +105,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>D:\Repositorios\Graficos\Graficos\Dependencies\glfw-3.2.1.bin.WIN32\include;D:\Repositorios\Graficos\Graficos\Dependencies\glew-2.1.0\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>D:\Repositorios\Graficos\Graficos\Dependencies\glm-0.9.9.0\glm\glm;D:\Repositorios\Graficos\Graficos\Dependencies\glfw-3.2.1.bin.WIN32\include;D:\Repositorios\Graficos\Graficos\Dependencies\glew-2.1.0\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -146,6 +146,12 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="PAGrenderer.cpp" />
+    <ClCompile Include="PAGshaderProgram.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="PAGrenderer.h" />
+    <ClInclude Include="PAGshaderProgram.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

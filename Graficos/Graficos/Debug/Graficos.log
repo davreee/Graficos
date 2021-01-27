@@ -1,7 +1,8 @@
 ﻿  main.cpp
-D:\Repositorios\Graficos\Graficos\Graficos\main.cpp(8,29): warning C4305: 'inicializando': truncamiento de 'double' a 'float'
-D:\Repositorios\Graficos\Graficos\Graficos\main.cpp(9,29): warning C4305: 'inicializando': truncamiento de 'double' a 'float'
-D:\Repositorios\Graficos\Graficos\Graficos\main.cpp(10,29): warning C4305: 'inicializando': truncamiento de 'double' a 'float'
-D:\Repositorios\Graficos\Graficos\Graficos\main.cpp(15,29): warning C4244: 'return': conversión de 'double' a 'float'; posible pérdida de datos
+  PAGrenderer.cpp
+D:\Repositorios\Graficos\Graficos\Graficos\PAGrenderer.cpp(8,144): warning C4305: 'inicializando': truncamiento de 'double' a 'float'
+D:\Repositorios\Graficos\Graficos\Graficos\PAGrenderer.cpp(178,29): warning C4244: 'return': conversión de 'double' a 'float'; posible pérdida de datos
+  PAGshaderProgram.cpp
+  Generando código...
 LINK : warning LNK4098: la biblioteca predeterminada'MSVCRT' entra en conflicto con otras bibliotecas; use la biblioteca /NODEFAULTLIB:biblioteca
   Graficos.vcxproj -> D:\Repositorios\Graficos\Graficos\Debug\Graficos.exe
