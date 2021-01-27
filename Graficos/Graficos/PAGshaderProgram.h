@@ -1,5 +1,6 @@
 #include <GL\glew.h>
 #include <GL\GL.h>
+#include <glm.hpp>
 #include <string>
 class PAGshaderProgram
 {
@@ -14,5 +15,9 @@ public:
 	void activar();
 	GLuint creaShaderProgram(std::string nombreBase);
 	std::string getMensajeGLSL();
+	void setUniform(std::string nombre, GLint valor);
+	void setUniform(std::string nombre, GLfloat valor);
+	void setUniform(std::string nombre, glm::vec3 valor);
+	void setUniform(std::string nombre, glm::mat4 valor);
 };
 

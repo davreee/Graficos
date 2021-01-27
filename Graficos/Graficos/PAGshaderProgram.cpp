@@ -1,7 +1,6 @@
 #include "PAGshaderProgram.h"
 #include <fstream>
-#include <iostream>
-
+#include <stdexcept>
 PAGshaderProgram::PAGshaderProgram() :identificador(0), enlazado(false), mensajeGLSL("")
 {
 }
@@ -82,7 +81,6 @@ void PAGshaderProgram::activar()
 	glUseProgram(identificador);
 }
 
-
 GLuint PAGshaderProgram::creaShaderProgram(std::string nombreBase)
 {
 	//Creamos el shader program
@@ -120,4 +118,47 @@ GLuint PAGshaderProgram::creaShaderProgram(std::string nombreBase)
 std::string PAGshaderProgram::getMensajeGLSL()
 {
 	return mensajeGLSL;
+}
+
+void PAGshaderProgram::setUniform(std::string nombre, GLint valor)
+{
+	GLint location = glGetUniformLocation(identificador, nombre.c_str());
+
+	if (location < 0) {
+		throw std::out_of_range("Error al localizar la variable: " + nombre);
+	}
+	glUniform1i(location, valor);
+}
+
+void PAGshaderProgram::setUniform(std::string nombre, GLfloat valor)
+{
+	GLint location = glGetUniformLocation(identificador, nombre.c_str());
+
+	if (location < 0) {
+		throw std::out_of_range("Error al localizar la variable: " + nombre);
+	}
+
+	glUniform1f(location, valor);
+}
+
+void PAGshaderProgram::setUniform(std::string nombre, glm::vec3 valor)
+{
+	GLint location = glGetUniformLocation(identificador, nombre.c_str());
+	
+	if (location < 0) {
+		throw std::out_of_range("Error al localizar la variable: " + nombre);
+	}
+
+	glUniform3fv(location, 1, &valor[0]);
+}
+
+void PAGshaderProgram::setUniform(std::string nombre, glm::mat4 valor)
+{
+	GLint location = glGetUniformLocation(identificador, nombre.c_str());
+
+	if (location < 0) {
+		throw std::out_of_range("Error al localizar la variable: " + nombre);
+	}
+
+	glUniformMatrix4fv(location, 1, false, &valor[0][0]);
 }

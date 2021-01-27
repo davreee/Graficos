@@ -145,13 +145,39 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="lodepng.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="PAGcamara.cpp" />
+    <ClCompile Include="PAGfuenteLuz.cpp" />
+    <ClCompile Include="PAGinstancia.cpp" />
+    <ClCompile Include="PAGmaterial.cpp" />
+    <ClCompile Include="PAGmodelo.cpp" />
+    <ClCompile Include="PAGmodeloRevolucion.cpp" />
+    <ClCompile Include="PAGnormalMap.cpp" />
+    <ClCompile Include="PAGperfilSubdivision.cpp" />
     <ClCompile Include="PAGrenderer.cpp" />
     <ClCompile Include="PAGshaderProgram.cpp" />
+    <ClCompile Include="PAGstatus.cpp" />
+    <ClCompile Include="PAGtextura.cpp" />
+    <ClCompile Include="PAGvao.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="lodepng.h" />
+    <ClInclude Include="OBJ_Loader.h" />
+    <ClInclude Include="PAGcamara.h" />
+    <ClInclude Include="PAGfuenteLuz.h" />
+    <ClInclude Include="PAGinstancia.h" />
+    <ClInclude Include="PAGmaterial.h" />
+    <ClInclude Include="PAGmodelo.h" />
+    <ClInclude Include="PAGmodeloRevolucion.h" />
+    <ClInclude Include="PAGnormalMap.h" />
+    <ClInclude Include="PAGperfilSubdivision.h" />
     <ClInclude Include="PAGrenderer.h" />
     <ClInclude Include="PAGshaderProgram.h" />
+    <ClInclude Include="PAGstatus.h" />
+    <ClInclude Include="PAGtextura.h" />
+    <ClInclude Include="PAGvalores.h" />
+    <ClInclude Include="PAGvao.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
