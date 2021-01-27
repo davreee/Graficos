@@ -1,1 +1,36 @@
-﻿  Graficos.vcxproj -> D:\Repositorios\Graficos\Graficos\Debug\Graficos.exe
+﻿  PAGrenderer.cpp
+D:\Repositorios\Graficos\Graficos\Graficos\PAGrenderer.cpp(26,1): warning C4305: 'inicializando': truncamiento de 'double' a 'float'
+D:\Repositorios\Graficos\Graficos\Graficos\PAGrenderer.cpp(92,31): warning C4018: '>': no coinciden signed/unsigned
+D:\Repositorios\Graficos\Graficos\Graficos\PAGrenderer.cpp(100,31): warning C4018: '>': no coinciden signed/unsigned
+D:\Repositorios\Graficos\Graficos\Graficos\PAGrenderer.cpp(113,31): warning C4018: '>': no coinciden signed/unsigned
+D:\Repositorios\Graficos\Graficos\Graficos\PAGrenderer.cpp(125,31): warning C4018: '>': no coinciden signed/unsigned
+D:\Repositorios\Graficos\Graficos\Graficos\PAGrenderer.cpp(138,31): warning C4018: '>': no coinciden signed/unsigned
+D:\Repositorios\Graficos\Graficos\Graficos\PAGrenderer.cpp(153,31): warning C4018: '>': no coinciden signed/unsigned
+D:\Repositorios\Graficos\Graficos\Graficos\PAGrenderer.cpp(323,20): warning C4018: '<': no coinciden signed/unsigned
+D:\Repositorios\Graficos\Graficos\Graficos\PAGrenderer.cpp(336,21): warning C4018: '<': no coinciden signed/unsigned
+D:\Repositorios\Graficos\Graficos\Graficos\PAGrenderer.cpp(366,23): warning C4018: '<': no coinciden signed/unsigned
+D:\Repositorios\Graficos\Graficos\Graficos\PAGrenderer.cpp(395,23): warning C4018: '<': no coinciden signed/unsigned
+D:\Repositorios\Graficos\Graficos\Graficos\PAGrenderer.cpp(434,23): warning C4018: '<': no coinciden signed/unsigned
+D:\Repositorios\Graficos\Graficos\Graficos\PAGrenderer.cpp(466,23): warning C4018: '<': no coinciden signed/unsigned
+D:\Repositorios\Graficos\Graficos\Graficos\PAGrenderer.cpp(479,20): warning C4018: '<': no coinciden signed/unsigned
+D:\Repositorios\Graficos\Graficos\Graficos\PAGrenderer.cpp(620,29): warning C4244: 'return': conversión de 'double' a 'float'; posible pérdida de datos
+D:\Repositorios\Graficos\Graficos\Graficos\PAGrenderer.cpp(695,15): warning C4244: 'argumento': conversión de 'double' a 'float'; posible pérdida de datos
+D:\Repositorios\Graficos\Graficos\Graficos\PAGrenderer.cpp(698,16): warning C4244: 'argumento': conversión de 'double' a 'float'; posible pérdida de datos
+D:\Repositorios\Graficos\Graficos\Graficos\PAGrenderer.cpp(701,31): warning C4244: 'argumento': conversión de 'double' a 'float'; posible pérdida de datos
+D:\Repositorios\Graficos\Graficos\Graficos\PAGrenderer.cpp(701,22): warning C4244: 'argumento': conversión de 'double' a 'float'; posible pérdida de datos
+D:\Repositorios\Graficos\Graficos\Graficos\PAGrenderer.cpp(703,16): warning C4244: 'argumento': conversión de 'double' a 'float'; posible pérdida de datos
+D:\Repositorios\Graficos\Graficos\Graficos\PAGrenderer.cpp(706,26): warning C4244: 'argumento': conversión de 'double' a 'float'; posible pérdida de datos
+D:\Repositorios\Graficos\Graficos\Graficos\PAGrenderer.cpp(706,17): warning C4244: 'argumento': conversión de 'double' a 'float'; posible pérdida de datos
+D:\Repositorios\Graficos\Graficos\Graficos\PAGrenderer.cpp(709,16): warning C4244: 'argumento': conversión de 'double' a 'float'; posible pérdida de datos
+  PAGshaderProgram.cpp
+  main.cpp
+D:\Repositorios\Graficos\Graficos\Graficos\OBJ_Loader.h(652,25): warning C4018: '<': no coinciden signed/unsigned
+D:\Repositorios\Graficos\Graficos\Graficos\OBJ_Loader.h(689,22): warning C4018: '<': no coinciden signed/unsigned
+D:\Repositorios\Graficos\Graficos\Graficos\OBJ_Loader.h(695,23): warning C4018: '<': no coinciden signed/unsigned
+D:\Repositorios\Graficos\Graficos\Graficos\OBJ_Loader.h(949,18): warning C4244: 'inicializando': conversión de 'double' a 'float'; posible pérdida de datos
+D:\Repositorios\Graficos\Graficos\Graficos\main.cpp(235,21): warning C4018: '<': no coinciden signed/unsigned
+D:\Repositorios\Graficos\Graficos\Graficos\main.cpp(248,22): warning C4018: '<': no coinciden signed/unsigned
+D:\Repositorios\Graficos\Graficos\Graficos\main.cpp(260,22): warning C4018: '<': no coinciden signed/unsigned
+  Generando código...
+LINK : warning LNK4098: la biblioteca predeterminada'MSVCRT' entra en conflicto con otras bibliotecas; use la biblioteca /NODEFAULTLIB:biblioteca
+  Graficos.vcxproj -> D:\Repositorios\Graficos\Graficos\Debug\Graficos.exe

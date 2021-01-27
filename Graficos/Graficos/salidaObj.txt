@@ -1,0 +1,3 @@
+Mesh 0: 
+Vertices:
+Indices:
